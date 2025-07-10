@@ -29,6 +29,27 @@ fetch('/ui/data/resonance-legend.json')
       const selectedRole = this.value;
       document.querySelectorAll('.element').forEach(el => {
         const role = el.querySelector('.role')?.textContent;
+        const redClusterBtn = document.getElementById('red-cluster');
+const blueClusterBtn = document.getElementById('blue-cluster');
+const goldClusterBtn = document.getElementById('gold-cluster');
+const resetBtn = document.getElementById('reset-cluster');
+
+function showCluster(clusterColor) {
+  document.querySelectorAll('.element').forEach(tile => {
+    const tileColor = tile.style.color.toLowerCase();
+    tile.style.display = tileColor.includes(clusterColor) ? 'block' : 'none';
+  });
+}
+
+redClusterBtn.addEventListener('click', () => showCluster('red'));
+blueClusterBtn.addEventListener('click', () => showCluster('blue'));
+goldClusterBtn.addEventListener('click', () => showCluster('gold'));
+resetBtn.addEventListener('click', () => {
+  document.querySelectorAll('.element').forEach(tile => {
+    tile.style.display = 'block';
+  });
+});
+
         if (!selectedRole || role === selectedRole) {
           el.style.display = 'block';
         } else {
