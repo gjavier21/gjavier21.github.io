@@ -1,1 +1,37 @@
-te
+{
+  "elements": [
+    {
+      "symbol": "C",
+      "name": "Carbon",
+      "frequency": 81,
+      "color": "#b22222",
+      "role": "Scaffold Tone",
+      "notes": "Memory-bearing core"
+    },
+    {
+      "symbol": "O",
+      "name": "Oxygen",
+      "frequency": 108,
+      "color": "#4169e1",
+      "role": "Expansion Harmonic",
+      "notes": "Signal amplification"
+    },
+    {
+      "symbol": "Fe",
+      "name": "Iron",
+      "frequency": 162,
+      "color": "#ff8c00",
+      "role": "Density Node",
+      "notes": "Temporal grounding"
+    },
+    {
+      "symbol": "Au",
+      "name": "Gold",
+      "frequency": 324,
+      "color": "#ffd700",
+      "role": "Reflective Overtone",
+      "notes": "Memory scaffold"
+    }
+    // Add more elements as needed
+  ]
+}
