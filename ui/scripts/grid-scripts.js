@@ -1,8 +1,3 @@
-fetch('/ui/data/resonance-legend.json')
-  .then(response => response.json())
-  .then(data => {
-    const grid = document.querySelector('.grid');
-
     data.elements.forEach(el => {
       const tile = document.createElement('div');
       tile.className = 'element';
