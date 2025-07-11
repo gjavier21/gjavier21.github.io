@@ -13,6 +13,37 @@ fetch('/ui/data/resonance-legend.json')
   playTone(parseFloat(tile.getAttribute('data-frequency')), 1);
 });
 
+      fetch('/ui/data/resonance-legend.json')
+  .then(response => response.json())
+  .then(data => {
+    data.elements.forEach(element => {
+      const tile = document.createElement('div');
+      tile.classList.add('element');
+      tile.setAttribute('data-symbol', element.symbol);
+      tile.setAttribute('data-frequency', element.frequency);
+      tile.setAttribute('data-role', element.role);
+      tile.style.color = element.color;
+      tile.innerHTML = `
+        <strong>${element.symbol}</strong><br>
+        <span class="role">${element.role}</span>
+        <div class="tooltip">${element.notes}</div>
+      `;
+
+      // Add modal + playback logic here
+      tile.addEventListener('click', () => {
+        document.getElementById('elementSymbol').textContent = element.symbol;
+        document.getElementById('elementFrequency').textContent = element.frequency;
+        document.getElementById('elementRole').textContent = element.role;
+        document.getElementById('elementNotes').textContent = element.notes;
+        document.getElementById('tile-modal').classList.remove('hidden');
+
+        playTone(parseFloat(tile.getAttribute('data-frequency')), 1);
+      });
+
+      document.querySelector('.grid').appendChild(tile);
+    });
+  });
+
       tile.innerHTML = `
         <span class="symbol">${el.symbol}</span>
         <span class="freq">${el.frequency} Hz</span>
